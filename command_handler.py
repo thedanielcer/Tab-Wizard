@@ -6,7 +6,7 @@ import os
 # === Load command mappings from JSON file ===
 def load_commands():
     try:
-        path = "commands.local.json" if os.path.exists("commands.local.json") else "commands.json"
+        path = os.getenv("COMMANDS_PATH")
         with open(path, "r") as f:
             return json.load(f)
     except Exception as e:
